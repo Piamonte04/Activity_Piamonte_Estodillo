@@ -4,6 +4,8 @@
  */
 package activity_piamonte_estodillo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -13,24 +15,71 @@ import java.util.Scanner;
 public class Activity_Piamonte_Estodillo {
      
 
-    static double numbers [] = new double[10], x, mean,
-                       sum=0, sum2=0, counter=0;
+//    static double numbers [] = new double[10], x, mean,
+//                       sum=0, sum2=0, counter=0;
    
     public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        System.out.println("Enter 10 munbers, one at a time: ");
+        List<PersonInfo> info = new ArrayList<>();
+   
+       
+      
+      
+        System.out.println("Person Info: ");
         
-        for (int i = 0;i<numbers.length;i++) {
-        x= scn.nextDouble();
-          numbers[i]= x;
-          sum+=numbers[i];
+         while (true) {     
+             
+             try {
+                  Scanner scn = new Scanner(System.in);
+           
+             System.out.println("Enter Name: ");
+             String name = scn.nextLine();
+             
+             System.out.println("Enter Age: ");
+             int Age = scn.nextInt();
+             
+             System.out.println("Enter Grade Level: ");
+             int gLevel = scn.nextInt();
+             
+             PersonInfo person = new PersonInfo(name, Age, gLevel);
+             info.add(person);
+             
+             for (PersonInfo personInfo : info) {
+                 System.out.println("Name: " + personInfo.getName());
+                 System.out.println("Age: " + personInfo.getAge());
+                 System.out.println("Grade Level: " + personInfo.getGradeLevel()+"\n");
+             }
+             } catch (NumberFormatException e) {
+                 e.printStackTrace();
+             }
+          
+             
         }
-        mean = sum / numbers.length;
-        for (int i = 0;i<numbers.length;i++){
-            sum2 += Math.pow(numbers[i] - mean, 2);
-        }
-        System.out.println("Mean = " + mean );
         
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+   //     mean
+//        Scanner scn = new Scanner(System.in);
+//        System.out.println("Enter 10 munbers, one at a time: ");
+//        
+//        for (int i = 0;i<numbers.length;i++) {
+//        x= scn.nextDouble();
+//          numbers[i]= x;
+//          sum+=numbers[i];
+//        }
+//        mean = sum / numbers.length;
+//        for (int i = 0;i<numbers.length;i++){
+//            sum2 += Math.pow(numbers[i] - mean, 2);
+//        }
+//        System.out.println("Mean = " + mean );
+//        
         
         
         
